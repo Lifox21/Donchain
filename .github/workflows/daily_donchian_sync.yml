@@ -1,0 +1,56 @@
+name: Daily Donchian Trading Bot Sync
+
+on:
+  schedule:
+    # Trigger throughout Indian market hours Monday-Friday (IST = UTC + 5:30):
+    # 03:45 UTC = 09:15 AM IST (Market Open Check)
+    # 10:00 UTC = 03:30 PM IST (Market Close Rebalance & Dashboard Push)
+    - cron: '45 3 * * 1-5'
+    - cron: '0 10 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: donchian-market-sync-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  sync-donchian:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Daily Rebalance
+        run: |
+          python trading_bot.py --rebalance-now
+
+      - name: Commit and Push Updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md portfolio_state.json trade_log.csv
+          if git diff --cached --quiet; then
+            echo "No portfolio changes to commit."
+          else
+            git commit -m "Auto-update Donchian portfolio and dashboard [skip ci]"
+            git pull --rebase origin main || true
+            git push origin main
+          fi

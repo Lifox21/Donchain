@@ -198,19 +198,49 @@ def scan_latest_market_signals(
     buy_signals = []
     current_prices = {}
 
+    stock_frames = {}
     csv_files = list(daily_dir.glob("*.csv"))
-    logger.info(f"Scanning market data across {len(csv_files)} equities...")
-
-    for csv_file in csv_files:
-        symbol = csv_file.stem.replace("_daily", "")
+    if csv_files:
+        logger.info(f"Scanning market data across {len(csv_files)} local equities...")
+        for csv_file in csv_files:
+            sym = csv_file.stem.replace("_daily", "")
+            try:
+                df = pd.read_csv(csv_file)
+                if len(df) >= 30:
+                    df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
+                    df = df.dropna(subset=["Date", "Close"]).sort_values("Date")
+                    if not df.empty:
+                        stock_frames[sym] = df
+            except Exception:
+                continue
+    else:
+        logger.info("No local CSV files found. Fetching live market data via yfinance for held positions & momentum watchlist...")
         try:
-            df = pd.read_csv(csv_file)
-            if len(df) < 30:
-                continue
-            df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
-            df = df.dropna(subset=["Date", "Close"]).sort_values("Date")
-            if df.empty:
-                continue
+            import yfinance as yf
+            tracked = list(holdings.keys()) + [
+                "UEL", "ASKAUTOLTD", "MOREPENLAB", "NPST", "AURUM", "ADANIPOWER",
+                "TITAN", "TVSMOTOR", "RELIANCE", "TCS", "HDFCBANK", "INFY", "LT",
+                "ADANIGREEN", "ADANIENSOL", "E2E", "CUPID", "ELECTHERM", "ORCHPHARMA"
+            ]
+            tracked = list(dict.fromkeys(tracked))
+            tickers = [f"{s}.NS" for s in tracked]
+            raw = yf.download(tickers, period="1y", group_by="ticker", progress=False, threads=True)
+            for s in tracked:
+                t_str = f"{s}.NS"
+                try:
+                    df = raw[t_str][["Open", "High", "Low", "Close", "Volume"]].copy() if len(tickers) > 1 else raw[["Open", "High", "Low", "Close", "Volume"]].copy()
+                    df = df.dropna(subset=["Close"]).reset_index()
+                    if len(df) >= 30:
+                        df["Date"] = pd.to_datetime(df["Date"], errors="coerce").dt.tz_localize(None)
+                        stock_frames[s] = df.sort_values("Date")
+                except Exception:
+                    continue
+        except Exception as e:
+            logger.warning(f"Live data fetch error: {e}")
+
+    logger.info(f"Evaluating breakout signals across {len(stock_frames)} assets...")
+    for symbol, df in stock_frames.items():
+        try:
 
             last_row = df.iloc[-1]
             last_date = last_row["Date"].strftime("%Y-%m-%d")
