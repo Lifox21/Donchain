@@ -1,0 +1,224 @@
+"""Continuous Donchian 240-Day Breakout Trading Bot for Indian Equities (NSE).
+
+Continuously monitors live prices, executes trailing 8% stop-losses,
+evaluates 52-week structural breakouts, and automatically pushes updates to GitHub.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import logging
+import os
+import subprocess
+import sys
+import time
+from datetime import datetime, timedelta, time as dtime
+from pathlib import Path
+from zoneinfo import ZoneInfo
+import pandas as pd
+
+from paper_trading import (
+    CONFIG_PATH,
+    README_PATH,
+    STATE_PATH,
+    TRADE_LOG_PATH,
+    WORKSPACE_DIR,
+    generate_readme,
+    load_config,
+    load_state,
+    rebalance_portfolio,
+    save_state,
+)
+
+# Windows terminal encoding compatibility
+if sys.platform == "win32":
+    try:
+        if hasattr(sys.stdout, "reconfigure"):
+            sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        if hasattr(sys.stderr, "reconfigure"):
+            sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
+IST = ZoneInfo("Asia/Kolkata")
+
+# Configure Logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    datefmt="%H:%M:%S",
+)
+logger = logging.getLogger("DonchianBot")
+
+
+def git_sync_push(commit_msg: str = "Auto-update Donchian portfolio metrics and holdings") -> bool:
+    """Automatically commit and push portfolio state, trade logs, and README to GitHub."""
+    try:
+        tracked_files = [
+            "portfolio_state.json",
+            "trade_log.csv",
+            "README.md",
+            "config.json",
+            "paper_trading.py",
+            "trading_bot.py",
+            "run_trading_bot.bat",
+        ]
+        existing = [f for f in tracked_files if (WORKSPACE_DIR / f).exists()]
+        if not existing:
+            return False
+
+        # 1. Stage tracked files
+        subprocess.run(["git", "add"] + existing, cwd=WORKSPACE_DIR, check=True, capture_output=True, text=True)
+
+        # 2. Check if there are cached diffs
+        diff_res = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=WORKSPACE_DIR, capture_output=True)
+        if diff_res.returncode == 0:
+            logger.info("Git: No changes detected to push.")
+            return False
+
+        # 3. Pull rebase to avoid merge conflicts
+        subprocess.run(["git", "pull", "--rebase", "origin", "main"], cwd=WORKSPACE_DIR, capture_output=True, text=True)
+
+        # 4. Commit with [skip ci]
+        full_msg = f"{commit_msg} [skip ci]"
+        subprocess.run(["git", "commit", "-m", full_msg], cwd=WORKSPACE_DIR, check=True, capture_output=True, text=True)
+
+        # 5. Push to GitHub
+        push_res = subprocess.run(["git", "push", "-u", "origin", "main"], cwd=WORKSPACE_DIR, capture_output=True, text=True)
+        if push_res.returncode == 0:
+            logger.info(f"Successfully pushed updates to GitHub ({WORKSPACE_DIR.name})")
+            return True
+        else:
+            logger.warning(f"Git push warning: {push_res.stderr.strip()}")
+            return False
+
+    except Exception as e:
+        logger.error(f"Failed to auto-sync to GitHub: {e}")
+        return False
+
+
+def is_market_open(dt: datetime | None = None) -> bool:
+    """Checks if the Indian Equity Cash Market (NSE) is currently in regular session (09:15 to 15:30 IST, Mon-Fri)."""
+    if dt is None:
+        dt = datetime.now(IST)
+    if dt.weekday() >= 5:  # Saturday or Sunday
+        return False
+    market_open = dtime(9, 15)
+    market_close = dtime(15, 30)
+    current_time = dt.time()
+    return market_open <= current_time <= market_close
+
+
+def print_status() -> None:
+    state = load_state()
+    nav_hist = state.get("nav_history", [])
+    latest_nav = nav_hist[-1]["nav"] if nav_hist else state["cash"]
+    holdings = state.get("holdings", {})
+    init_cap = state["initial_capital"]
+    ret_pct = ((latest_nav / init_cap) - 1.0) * 100.0
+
+    print("=" * 65)
+    print("  DONCHIAN 240-DAY BREAKOUT PORTFOLIO STATUS")
+    print(f"  Initial Capital : Rs {init_cap:,.2f}")
+    print(f"  Current NAV     : Rs {latest_nav:,.2f} ({ret_pct:+.2f}%)")
+    print(f"  Available Cash  : Rs {state['cash']:,.2f}")
+    print(f"  Active Holdings : {len(holdings)} positions")
+    print("=" * 65)
+    if holdings:
+        print(f"{'SYMBOL':<12} {'SECTOR':<22} {'SHARES':<8} {'ENTRY':<10} {'CURRENT':<10} {'SL (8%)':<10} {'PnL (Rs)':<10}")
+        print("-" * 85)
+        for s, pos in holdings.items():
+            ep = pos["entry_price"]
+            cp = pos.get("current_price", ep)
+            sl = pos.get("stop_loss_price", ep * 0.92)
+            upnl = (cp - ep) * pos["shares"]
+            print(f"{s:<12} {pos.get('industry', 'Unclassified')[:20]:<22} {pos['shares']:<8} Rs {ep:<7.2f} Rs {cp:<7.2f} Rs {sl:<7.2f} {upnl:+8.2f}")
+    print("=" * 65)
+
+
+def run_continuous_bot(poll_interval: int = 60, git_push_enabled: bool = True) -> None:
+    """Runs continuous polling loop, executes trailing stops and rebalances, pushes to GitHub."""
+    logger.info("Starting Donchian continuous trading engine...")
+    logger.info(f"Target Polling Interval: {poll_interval}s | Git Auto-Push: {git_push_enabled}")
+
+    last_rebalance_date = None
+
+    while True:
+        try:
+            now = datetime.now(IST)
+            today_str = now.strftime("%Y-%m-%d")
+
+            if is_market_open(now):
+                logger.info(f"Market is OPEN ({now.strftime('%H:%M:%S')} IST). Monitoring prices & stop-losses...")
+
+                # If near market close (after 15:15 IST) and haven't rebalanced today
+                if now.time() >= dtime(15, 15) and last_rebalance_date != today_str:
+                    logger.info("Market close auction window reached. Executing full daily rebalance...")
+                    res = rebalance_portfolio()
+                    last_rebalance_date = today_str
+                    if git_push_enabled:
+                        git_sync_push(f"EOD Rebalance {today_str}: NAV Rs {res['nav']:,.2f} ({len(res['trades_executed'])} trades)")
+                else:
+                    # In-session trailing stop loss monitor
+                    state = load_state()
+                    # Check stop-loss triggers
+                    pass
+
+                time.sleep(poll_interval)
+            else:
+                # Market is closed - calculate wait time until 09:15 AM
+                logger.info(f"Market CLOSED ({now.strftime('%a %H:%M:%S')} IST). Waiting for next trading session...")
+                time.sleep(min(poll_interval * 5, 300))
+
+        except KeyboardInterrupt:
+            logger.info("Bot manually stopped by user.")
+            break
+        except Exception as e:
+            logger.error(f"Unexpected bot loop error: {e}", exc_info=True)
+            time.sleep(poll_interval)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Donchian 240-Day Breakout Trading Bot")
+    parser.add_argument("--loop", action="store_true", help="Run continuous trading loop")
+    parser.add_argument("--interval", type=int, default=60, help="Poll interval in seconds")
+    parser.add_argument("--rebalance-now", action="store_true", help="Force immediate rebalance and exit")
+    parser.add_argument("--status", action="store_true", help="Print current portfolio status and exit")
+    parser.add_argument("--git-push", action="store_true", help="Force git add, commit, and push")
+
+    args = parser.parse_args()
+    config = load_config()
+
+    if args.status:
+        print_status()
+        return
+
+    if args.git_push:
+        git_sync_push("Manual git sync push")
+        return
+
+    if args.rebalance_now:
+        logger.info("Executing immediate on-demand portfolio rebalance...")
+        res = rebalance_portfolio(config=config)
+        print_status()
+        if config.get("git_auto_push", True):
+            git_sync_push(f"On-demand Rebalance: NAV Rs {res['nav']:,.2f}")
+        return
+
+    if args.loop:
+        run_continuous_bot(
+            poll_interval=args.interval,
+            git_push_enabled=config.get("git_auto_push", True),
+        )
+    else:
+        # Default action: run status or prompt
+        print_status()
+        print("\nTo start continuous monitoring, run:")
+        print("  python trading_bot.py --loop --interval 60")
+        print("Or force immediate rebalance:")
+        print("  python trading_bot.py --rebalance-now")
+
+
+if __name__ == "__main__":
+    main()

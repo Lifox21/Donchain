@@ -1,0 +1,58 @@
+{
+  "initial_capital": 150000.0,
+  "cash": 119968.57015624999,
+  "holdings": {
+    "UEL": {
+      "shares": 48,
+      "entry_price": 245.5200042724609,
+      "peak_price": 245.5200042724609,
+      "stop_loss_price": 225.88,
+      "current_price": 245.5200042724609,
+      "entry_date": "2026-08-06",
+      "industry": "Unclassified",
+      "signal_type": "DONCHIAN_240_BREAKOUT",
+      "unrealized_pnl": 0.0,
+      "unrealized_pnl_pct": 0.0
+    },
+    "ASKAUTOLTD": {
+      "shares": 17,
+      "entry_price": 678.7999877929688,
+      "peak_price": 678.7999877929688,
+      "stop_loss_price": 624.5,
+      "current_price": 678.7999877929688,
+      "entry_date": "2026-08-06",
+      "industry": "Unclassified",
+      "signal_type": "DONCHIAN_240_BREAKOUT",
+      "unrealized_pnl": 0.0,
+      "unrealized_pnl_pct": 0.0
+    },
+    "MOREPENLAB": {
+      "shares": 84,
+      "entry_price": 79.41999816894531,
+      "peak_price": 79.41999816894531,
+      "stop_loss_price": 73.07,
+      "current_price": 79.41999816894531,
+      "entry_date": "2026-08-06",
+      "industry": "Unclassified",
+      "signal_type": "DONCHIAN_240_BREAKOUT",
+      "unrealized_pnl": 0.0,
+      "unrealized_pnl_pct": 0.0
+    }
+  },
+  "cooldowns": {},
+  "nav_history": [
+    {
+      "date": "2026-08-06",
+      "nav": 149964.41,
+      "cash": 119968.57,
+      "invested": 29995.84,
+      "holdings_count": 3,
+      "total_return_pct": -0.02
+    }
+  ],
+  "total_trades": 0,
+  "winning_trades": 0,
+  "losing_trades": 0,
+  "realized_pnl": 0.0,
+  "last_updated": "2026-10-11 16:31:59"
+}

@@ -1,0 +1,23 @@
+{
+  "initial_capital": 150000.0,
+  "max_position_pct": 0.08,
+  "max_sector_pct": 0.20,
+  "max_positions": 12,
+  "donchian_period": 240,
+  "reentry_period": 20,
+  "cooldown_days": 21,
+  "trailing_stop_pct": 0.08,
+  "poll_interval_seconds": 60,
+  "git_auto_push": true,
+  "git_remote": "https://github.com/Ved-2107/Donchain.git",
+  "git_branch": "main",
+  "cost_model": {
+    "brokerage_bps": 0.0,
+    "exchange_transaction_bps": 0.30,
+    "sebi_turnover_bps": 0.01,
+    "gst_rate": 0.18,
+    "stamp_duty_buy_bps": 1.50,
+    "stt_sell_bps": 10.0,
+    "slippage_bps": 10.0
+  }
+}
