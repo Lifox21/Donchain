@@ -10,14 +10,14 @@
 
 | Metric | Current Value | Strategy Reference |
 | :--- | :---: | :--- |
-| **Portfolio NAV** | **₹149,964.41** | Initial Capital: ₹150,000.00 |
-| **Net Return** | **-0.02%** | All fees, STT, GST and slippage accounted |
-| **Available Cash** | **₹119,968.57** | Ready for opportunistic deployment |
-| **Invested Capital** | **₹29,995.84** | Allocated across active momentum leaders |
-| **Active Holdings** | **3 Positions** | Max limit: 12 stocks (8% single-stock cap) |
-| **Total Completed Trades** | **0 Trades** | Closed via 8% trailing stop-loss |
-| **Win Rate** | **0.0%** | High profit-factor trend following |
-| **Last Bot Update** | `2026-10-11 16:31:59` | Auto-synced to GitHub |
+| **Portfolio NAV** | **₹151,088.57** | Initial Capital: ₹150,000.00 |
+| **Net Return** | **+0.73%** | All fees, STT, GST and slippage accounted |
+| **Available Cash** | **₹139,007.27** | Ready for opportunistic deployment |
+| **Invested Capital** | **₹12,081.30** | Allocated across active momentum leaders |
+| **Active Holdings** | **1 Positions** | Max limit: 12 stocks (8% single-stock cap) |
+| **Total Completed Trades** | **3 Trades** | Closed via 8% trailing stop-loss |
+| **Win Rate** | **33.3%** | High profit-factor trend following |
+| **Last Bot Update** | `2026-10-11 19:18:18` | Auto-synced to GitHub |
 
 ---
 
@@ -25,9 +25,7 @@
 
 | Symbol | Sector | Shares | Entry Price | Current Price | Peak Price | Trailing Stop (8%) | Unrealized PnL | Return % |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **UEL** | Unclassified | 48 | ₹245.52 | ₹245.52 | ₹245.52 | ₹225.88 | **₹+0.00** | **+0.00%** |
-| **ASKAUTOLTD** | Unclassified | 17 | ₹678.80 | ₹678.80 | ₹678.80 | ₹624.50 | **₹+0.00** | **+0.00%** |
-| **MOREPENLAB** | Unclassified | 84 | ₹79.42 | ₹79.42 | ₹79.42 | ₹73.07 | **₹+0.00** | **+0.00%** |
+| **CUPID** | Unclassified | 33 | ₹366.10 | ₹366.10 | ₹366.10 | ₹336.81 | **₹+0.00** | **+0.00%** |
 
 ---
 
