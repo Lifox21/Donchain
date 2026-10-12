@@ -10,14 +10,14 @@
 
 | Metric | Current Value | Strategy Reference |
 | :--- | :---: | :--- |
-| **Portfolio NAV** | **₹151,088.57** | Initial Capital: ₹150,000.00 |
-| **Net Return** | **+0.73%** | All fees, STT, GST and slippage accounted |
+| **Portfolio NAV** | **₹150,781.67** | Initial Capital: ₹150,000.00 |
+| **Net Return** | **+0.52%** | All fees, STT, GST and slippage accounted |
 | **Available Cash** | **₹139,007.27** | Ready for opportunistic deployment |
-| **Invested Capital** | **₹12,081.30** | Allocated across active momentum leaders |
+| **Invested Capital** | **₹11,774.40** | Allocated across active momentum leaders |
 | **Active Holdings** | **1 Positions** | Max limit: 12 stocks (8% single-stock cap) |
 | **Total Completed Trades** | **3 Trades** | Closed via 8% trailing stop-loss |
 | **Win Rate** | **33.3%** | High profit-factor trend following |
-| **Last Bot Update** | `2026-10-11 19:18:18` | Auto-synced to GitHub |
+| **Last Bot Update** | `2026-10-12 11:50:49` | Auto-synced to GitHub |
 
 ---
 
@@ -25,7 +25,7 @@
 
 | Symbol | Sector | Shares | Entry Price | Current Price | Peak Price | Trailing Stop (8%) | Unrealized PnL | Return % |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **CUPID** | Unclassified | 33 | ₹366.10 | ₹366.10 | ₹366.10 | ₹336.81 | **₹+0.00** | **+0.00%** |
+| **CUPID** | Unclassified | 33 | ₹366.10 | ₹356.80 | ₹368.95 | ₹339.43 | **₹-306.90** | **-2.54%** |
 
 ---
 

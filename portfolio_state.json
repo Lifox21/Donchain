@@ -5,14 +5,14 @@
     "CUPID": {
       "shares": 33,
       "entry_price": 366.1000061035156,
-      "peak_price": 366.1000061035156,
-      "stop_loss_price": 336.81,
-      "current_price": 366.1000061035156,
+      "peak_price": 368.95001220703125,
+      "stop_loss_price": 339.43401123046874,
+      "current_price": 356.79998779296875,
       "entry_date": "2026-10-09",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": 0.0,
-      "unrealized_pnl_pct": 0.0
+      "unrealized_pnl": -306.9,
+      "unrealized_pnl_pct": -2.54
     }
   },
   "cooldowns": {
@@ -36,11 +36,19 @@
       "invested": 12081.3,
       "holdings_count": 1,
       "total_return_pct": 0.73
+    },
+    {
+      "date": "2026-10-09",
+      "nav": 150781.67,
+      "cash": 139007.27,
+      "invested": 11774.4,
+      "holdings_count": 1,
+      "total_return_pct": 0.52
     }
   ],
   "total_trades": 3,
   "winning_trades": 1,
   "losing_trades": 2,
   "realized_pnl": 1138.50094482422,
-  "last_updated": "2026-10-11 19:18:18"
+  "last_updated": "2026-10-12 11:50:49"
 }
