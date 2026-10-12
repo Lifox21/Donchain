@@ -3,12 +3,16 @@ name: Daily Donchian Trading Bot Sync
 on:
   schedule:
     # Trigger throughout Indian market hours Monday-Friday (IST = UTC + 5:30):
-    # 03:45 UTC = 09:15 AM IST (Market Open Check)
+    # 03:45 UTC = 09:15 AM IST (Market Open initialization)
+    # 05:30 UTC = 11:00 AM IST (Mid-morning scan)
+    # 07:30 UTC = 01:00 PM IST (Mid-day scan)
     # 09:45 UTC = 03:15 PM IST (Market EOD 15:15 Rebalance Window)
-    # 10:00 UTC = 03:30 PM IST (Market Close Final Sync)
+    # 10:05 UTC = 03:35 PM IST (Market Close Final Sync)
     - cron: '45 3 * * 1-5'
+    - cron: '30 5 * * 1-5'
+    - cron: '30 7 * * 1-5'
     - cron: '45 9 * * 1-5'
-    - cron: '0 10 * * 1-5'
+    - cron: '5 10 * * 1-5'
   workflow_dispatch:
 
 permissions:

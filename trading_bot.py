@@ -177,10 +177,32 @@ def run_continuous_bot(poll_interval: int = 60, git_push_enabled: bool = True) -
                     if git_push_enabled:
                         git_sync_push(f"EOD Rebalance {today_str}: NAV Rs {res['nav']:,.2f} ({len(res['trades_executed'])} trades)")
                 else:
-                    # In-session trailing stop loss monitor
-                    state = load_state()
-                    # Check stop-loss triggers
-                    pass
+                    # In-session trailing stop loss monitor for held positions
+                    holdings = load_state().get("holdings", {})
+                    if holdings:
+                        try:
+                            import yfinance as yf
+                            tickers = [f"{s}.NS" for s in holdings.keys()]
+                            data = yf.download(tickers, period="1d", progress=False, threads=True)
+                            for s, pos in list(holdings.items()):
+                                t_str = f"{s}.NS"
+                                sub = data[t_str] if len(tickers) > 1 else data
+                                if "Close" in sub and not sub["Close"].dropna().empty:
+                                    curr_p = float(sub["Close"].dropna().iloc[-1])
+                                    high_p = float(sub["High"].dropna().iloc[-1]) if "High" in sub and not sub["High"].dropna().empty else curr_p
+                                    peak_p = max(pos.get("peak_price", pos["entry_price"]), high_p)
+                                    sl_price = peak_p * (1.0 - 0.08)
+                                    pos["peak_price"] = peak_p
+                                    pos["stop_loss_price"] = sl_price
+                                    pos["current_price"] = curr_p
+                                    if curr_p <= sl_price:
+                                        logger.warning(f"IN-SESSION STOP LOSS HIT: {s} @ Rs {curr_p:.2f} <= SL Rs {sl_price:.2f}! Executing exit...")
+                                        rebalance_portfolio()
+                                        if git_push_enabled:
+                                            git_sync_push(f"Stop-Loss Exit {s}: Sold @ Rs {curr_p:.2f} [skip ci]")
+                                        break
+                        except Exception as e:
+                            logger.debug(f"Live in-session price check note: {e}")
 
                 time.sleep(poll_interval)
             else:
