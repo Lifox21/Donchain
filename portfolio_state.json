@@ -1,24 +1,49 @@
 {
   "initial_capital": 150000.0,
-  "cash": 139007.27074340818,
+  "cash": 118369.13999145506,
   "holdings": {
-    "CUPID": {
-      "shares": 33,
-      "entry_price": 366.1000061035156,
-      "peak_price": 368.95001220703125,
-      "stop_loss_price": 339.43401123046874,
-      "current_price": 356.79998779296875,
-      "entry_date": "2026-10-09",
+    "KABRAEXTRU": {
+      "shares": 24,
+      "entry_price": 477.6000061035156,
+      "peak_price": 477.6000061035156,
+      "stop_loss_price": 439.39,
+      "current_price": 477.6000061035156,
+      "entry_date": "2026-08-06",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": -306.9,
-      "unrealized_pnl_pct": -2.54
+      "unrealized_pnl": 0.0,
+      "unrealized_pnl_pct": 0.0
+    },
+    "RBA": {
+      "shares": 130,
+      "entry_price": 90.25,
+      "peak_price": 90.25,
+      "stop_loss_price": 83.03,
+      "current_price": 90.25,
+      "entry_date": "2026-08-06",
+      "industry": "Unclassified",
+      "signal_type": "DONCHIAN_240_BREAKOUT",
+      "unrealized_pnl": 0.0,
+      "unrealized_pnl_pct": 0.0
+    },
+    "E2E": {
+      "shares": 10,
+      "entry_price": 605.7000122070312,
+      "peak_price": 605.7000122070312,
+      "stop_loss_price": 557.24,
+      "current_price": 605.7000122070312,
+      "entry_date": "2026-08-06",
+      "industry": "Unclassified",
+      "signal_type": "DONCHIAN_240_BREAKOUT",
+      "unrealized_pnl": 0.0,
+      "unrealized_pnl_pct": 0.0
     }
   },
   "cooldowns": {
     "UEL": "2026-10-09",
     "ASKAUTOLTD": "2026-10-09",
-    "MOREPENLAB": "2026-10-09"
+    "MOREPENLAB": "2026-10-09",
+    "CUPID": "2026-08-06"
   },
   "nav_history": [
     {
@@ -44,11 +69,19 @@
       "invested": 11774.4,
       "holdings_count": 1,
       "total_return_pct": 0.52
+    },
+    {
+      "date": "2026-08-06",
+      "nav": 147621.04,
+      "cash": 118369.14,
+      "invested": 29251.9,
+      "holdings_count": 3,
+      "total_return_pct": -1.59
     }
   ],
-  "total_trades": 3,
+  "total_trades": 4,
   "winning_trades": 1,
-  "losing_trades": 2,
-  "realized_pnl": 1138.50094482422,
-  "last_updated": "2026-10-12 11:50:49"
+  "losing_trades": 3,
+  "realized_pnl": -2294.319739990233,
+  "last_updated": "2026-10-12 14:27:12"
 }
