@@ -52,6 +52,19 @@ logging.basicConfig(
 logger = logging.getLogger("DonchianBot")
 
 
+def git_sync_pull() -> bool:
+    """Automatically pulls latest remote updates from GitHub if any exist."""
+    try:
+        res = subprocess.run(["git", "pull", "--rebase", "origin", "main"], cwd=WORKSPACE_DIR, capture_output=True, text=True)
+        if res.returncode == 0 and "Already up to date." not in res.stdout:
+            logger.info("Git: Pulled latest cloud updates from GitHub.")
+            return True
+        return False
+    except Exception as e:
+        logger.debug(f"Git pull error: {e}")
+        return False
+
+
 def git_sync_push(commit_msg: str = "Auto-update Donchian portfolio metrics and holdings") -> bool:
     """Automatically commit and push portfolio state, trade logs, and README to GitHub."""
     try:
@@ -142,6 +155,9 @@ def run_continuous_bot(poll_interval: int = 60, git_push_enabled: bool = True) -
     logger.info("Starting Donchian continuous trading engine...")
     logger.info(f"Target Polling Interval: {poll_interval}s | Git Auto-Push: {git_push_enabled}")
 
+    # Initial sync from GitHub at startup
+    git_sync_pull()
+
     last_rebalance_date = None
 
     while True:
@@ -155,6 +171,7 @@ def run_continuous_bot(poll_interval: int = 60, git_push_enabled: bool = True) -
                 # If near market close (after 15:15 IST) and haven't rebalanced today
                 if now.time() >= dtime(15, 15) and last_rebalance_date != today_str:
                     logger.info("Market close auction window reached. Executing full daily rebalance...")
+                    git_sync_pull()
                     res = rebalance_portfolio()
                     last_rebalance_date = today_str
                     if git_push_enabled:
@@ -168,7 +185,16 @@ def run_continuous_bot(poll_interval: int = 60, git_push_enabled: bool = True) -
                 time.sleep(poll_interval)
             else:
                 # Market is closed - calculate wait time until 09:15 AM
-                logger.info(f"Market CLOSED ({now.strftime('%a %H:%M:%S')} IST). Waiting for next trading session...")
+                # Check minutes until 09:15 AM IST today
+                open_today = datetime(now.year, now.month, now.day, 9, 15, tzinfo=IST)
+                if now.weekday() < 5 and now.time() < dtime(9, 15):
+                    mins_to_open = int((open_today - now).total_seconds() / 60.0)
+                    logger.info(f"Market CLOSED ({now.strftime('%a %H:%M:%S')} IST). Opening bell at 09:15 AM IST (in {mins_to_open} mins). Standing by...")
+                else:
+                    logger.info(f"Market CLOSED ({now.strftime('%a %H:%M:%S')} IST). Waiting for next trading session...")
+
+                # Sync any remote updates from GitHub Actions
+                git_sync_pull()
                 time.sleep(min(poll_interval * 5, 300))
 
         except KeyboardInterrupt:

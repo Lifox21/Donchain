@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.tmp
+*.log
+bot_live.log
 
 # Virtual environments
 venv/
