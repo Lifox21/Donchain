@@ -5,8 +5,8 @@
     "KABRAEXTRU": {
       "shares": 24,
       "entry_price": 477.6000061035156,
-      "peak_price": 477.6000061035156,
-      "stop_loss_price": 439.39,
+      "peak_price": 485.4500122070313,
+      "stop_loss_price": 446.6140112304688,
       "current_price": 477.6000061035156,
       "entry_date": "2026-08-06",
       "industry": "Unclassified",
@@ -17,8 +17,8 @@
     "RBA": {
       "shares": 130,
       "entry_price": 90.25,
-      "peak_price": 90.25,
-      "stop_loss_price": 83.03,
+      "peak_price": 91.8000030517578,
+      "stop_loss_price": 84.45600280761718,
       "current_price": 90.25,
       "entry_date": "2026-08-06",
       "industry": "Unclassified",
@@ -29,8 +29,8 @@
     "E2E": {
       "shares": 10,
       "entry_price": 605.7000122070312,
-      "peak_price": 605.7000122070312,
-      "stop_loss_price": 557.24,
+      "peak_price": 627.7000122070312,
+      "stop_loss_price": 577.4840112304688,
       "current_price": 605.7000122070312,
       "entry_date": "2026-08-06",
       "industry": "Unclassified",
@@ -77,11 +77,19 @@
       "invested": 29251.9,
       "holdings_count": 3,
       "total_return_pct": -1.59
+    },
+    {
+      "date": "2026-08-06",
+      "nav": 147621.04,
+      "cash": 118369.14,
+      "invested": 29251.9,
+      "holdings_count": 3,
+      "total_return_pct": -1.59
     }
   ],
   "total_trades": 4,
   "winning_trades": 1,
   "losing_trades": 3,
   "realized_pnl": -2294.319739990233,
-  "last_updated": "2026-10-12 14:27:12"
+  "last_updated": "2026-10-12 15:16:35"
 }

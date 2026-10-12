@@ -17,7 +17,7 @@
 | **Active Holdings** | **3 Positions** | Max limit: 12 stocks (8% single-stock cap) |
 | **Total Completed Trades** | **4 Trades** | Closed via 8% trailing stop-loss |
 | **Win Rate** | **25.0%** | High profit-factor trend following |
-| **Last Bot Update** | `2026-10-12 14:27:12` | Auto-synced to GitHub |
+| **Last Bot Update** | `2026-10-12 15:16:35` | Auto-synced to GitHub |
 
 ---
 
@@ -25,9 +25,9 @@
 
 | Symbol | Sector | Shares | Entry Price | Current Price | Peak Price | Trailing Stop (8%) | Unrealized PnL | Return % |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **KABRAEXTRU** | Unclassified | 24 | ₹477.60 | ₹477.60 | ₹477.60 | ₹439.39 | **₹+0.00** | **+0.00%** |
-| **RBA** | Unclassified | 130 | ₹90.25 | ₹90.25 | ₹90.25 | ₹83.03 | **₹+0.00** | **+0.00%** |
-| **E2E** | Unclassified | 10 | ₹605.70 | ₹605.70 | ₹605.70 | ₹557.24 | **₹+0.00** | **+0.00%** |
+| **KABRAEXTRU** | Unclassified | 24 | ₹477.60 | ₹477.60 | ₹485.45 | ₹446.61 | **₹+0.00** | **+0.00%** |
+| **RBA** | Unclassified | 130 | ₹90.25 | ₹90.25 | ₹91.80 | ₹84.46 | **₹+0.00** | **+0.00%** |
+| **E2E** | Unclassified | 10 | ₹605.70 | ₹605.70 | ₹627.70 | ₹577.48 | **₹+0.00** | **+0.00%** |
 
 ---
 
