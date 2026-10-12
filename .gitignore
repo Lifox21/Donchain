@@ -19,7 +19,3 @@ env/
 *.npz
 *.tar.gz
 *.zip
-
-# Raw historical daily market data folder (245 MB, 1447 CSVs)
-Daily/
-Daily/*
