@@ -72,11 +72,19 @@
       "invested": 30213.99,
       "holdings_count": 3,
       "total_return_pct": 0.2
+    },
+    {
+      "date": "2026-10-13",
+      "nav": 150292.98,
+      "cash": 120078.99,
+      "invested": 30213.99,
+      "holdings_count": 3,
+      "total_return_pct": 0.2
     }
   ],
   "total_trades": 0,
   "winning_trades": 0,
   "losing_trades": 0,
   "realized_pnl": 0.0,
-  "last_updated": "2026-10-13 17:11:13"
+  "last_updated": "2026-10-13 18:28:03"
 }
