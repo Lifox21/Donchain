@@ -8,7 +8,7 @@ import os
 import glob
 import time
 import logging
-from pathlib import Path
+from datetime import datetime, timedelta
 import pandas as pd
 import yfinance as yf
 
@@ -17,9 +17,11 @@ logger = logging.getLogger("DataUpdater")
 
 DAILY_DIR = Path("Daily")
 
-def update_all_datasets(batch_size: int = 60, start_date: str = "2026-08-07") -> dict:
+def update_all_datasets(batch_size: int = 75, start_date: str | None = None) -> dict:
+    if start_date is None:
+        start_date = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d")
     csv_files = list(DAILY_DIR.glob("*_daily.csv"))
-    logger.info(f"Found {len(csv_files)} local daily CSV files to update...")
+    logger.info(f"Checking updates for {len(csv_files)} local daily CSV files from {start_date}...")
     
     symbols = [f.stem.replace("_daily", "") for f in csv_files]
     updated_count = 0

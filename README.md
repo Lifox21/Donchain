@@ -1,7 +1,7 @@
 # Donchian 240-Day Breakout Quantitative Trading System
 
 > **Automated Quantitative Strategy Implementation for Indian Equities (NSE)**  
-> **Connected Remote:** `https://github.com/Ved-2107/Donchain.git`  
+> **Connected Remote:** `https://github.com/Lifox21/Donchain.git`  
 > **Current Portfolio Status:** Active Continuous Paper Trading | **Base Capital:** ₹150,000.00
 
 ---

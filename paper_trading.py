@@ -73,7 +73,7 @@ def load_config() -> dict:
         "trailing_stop_pct": 0.08,
         "poll_interval_seconds": 60,
         "git_auto_push": True,
-        "git_remote": "https://github.com/Ved-2107/Donchain.git",
+        "git_remote": "https://github.com/Lifox21/Donchain.git",
         "git_branch": "main",
         "cost_model": asdict(CostModel()),
     }

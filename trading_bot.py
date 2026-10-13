@@ -76,6 +76,8 @@ def git_sync_push(commit_msg: str = "Auto-update Donchian portfolio metrics and 
             "paper_trading.py",
             "trading_bot.py",
             "run_trading_bot.bat",
+            "update_daily_datasets.py",
+            "Daily",
         ]
         existing = [f for f in tracked_files if (WORKSPACE_DIR / f).exists()]
         if not existing:
@@ -150,6 +152,50 @@ def print_status() -> None:
     print("=" * 65)
 
 
+def run_daily_pipeline(update_datasets: bool = True, git_push_enabled: bool = True) -> dict:
+    """
+    Unified Daily Donchian Execution Pipeline:
+    1. Pulls latest cloud state from remote GitHub.
+    2. Updates historical OHLCV bars across all 1,447 equities up to today.
+    3. Evaluates exits (8% trailing SL) and breakout entries (240-day Donchian).
+    4. Executes rebalance, computes NAV & metrics, and updates README dashboard.
+    5. Commits and pushes state, trade logs, datasets, and README to GitHub.
+    """
+    logger.info("================================================================")
+    logger.info("  STARTING DAILY DONCHIAN END-TO-END PIPELINE")
+    logger.info("================================================================")
+
+    # 1. Pull latest cloud changes
+    git_sync_pull()
+
+    # 2. Update daily price datasets
+    if update_datasets:
+        try:
+            from update_daily_datasets import update_all_datasets
+            logger.info("Step 1/3: Updating daily price bars across all 1,447 equities...")
+            update_all_datasets()
+        except Exception as e:
+            logger.warning(f"Dataset update note: {e}")
+
+    # 3. Rebalance portfolio
+    logger.info("Step 2/3: Evaluating Donchian strategy (exits & breakout entries)...")
+    config = load_config()
+    res = rebalance_portfolio(config=config)
+    print_status()
+
+    # 4. Push updates to GitHub
+    if git_push_enabled:
+        logger.info("Step 3/3: Synchronizing all updates, data, and dashboard to GitHub...")
+        today_str = datetime.now(IST).strftime("%Y-%m-%d")
+        commit_msg = f"Daily Run {today_str}: NAV Rs {res['nav']:,.2f} ({len(res['trades_executed'])} trades)"
+        git_sync_push(commit_msg)
+
+    logger.info("================================================================")
+    logger.info("  DAILY DONCHIAN PIPELINE COMPLETED SUCCESSFULLY")
+    logger.info("================================================================")
+    return res
+
+
 def run_continuous_bot(poll_interval: int = 60, git_push_enabled: bool = True) -> None:
     """Runs continuous polling loop, executes trailing stops and rebalances, pushes to GitHub."""
     logger.info("Starting Donchian continuous trading engine...")
@@ -170,12 +216,9 @@ def run_continuous_bot(poll_interval: int = 60, git_push_enabled: bool = True) -
 
                 # If near market close (after 15:15 IST) and haven't rebalanced today
                 if now.time() >= dtime(15, 15) and last_rebalance_date != today_str:
-                    logger.info("Market close auction window reached. Executing full daily rebalance...")
-                    git_sync_pull()
-                    res = rebalance_portfolio()
+                    logger.info("Market close auction window reached. Executing daily pipeline...")
+                    res = run_daily_pipeline(update_datasets=True, git_push_enabled=git_push_enabled)
                     last_rebalance_date = today_str
-                    if git_push_enabled:
-                        git_sync_push(f"EOD Rebalance {today_str}: NAV Rs {res['nav']:,.2f} ({len(res['trades_executed'])} trades)")
                 else:
                     # In-session trailing stop loss monitor for held positions
                     holdings = load_state().get("holdings", {})
@@ -239,8 +282,8 @@ def run_continuous_bot(poll_interval: int = 60, git_push_enabled: bool = True) -
 def main() -> None:
     parser = argparse.ArgumentParser(description="Donchian 240-Day Breakout Trading Bot")
     parser.add_argument("--loop", action="store_true", help="Run continuous trading loop")
-    parser.add_argument("--interval", type=int, default=60, help="Poll interval in seconds")
-    parser.add_argument("--rebalance-now", action="store_true", help="Force immediate rebalance and exit")
+    parser.add_argument("--daily-run", "--daily-pipeline", dest="daily_run", action="store_true", help="Execute complete once-daily update & strategy pipeline")
+    parser.add_argument("--rebalance-now", action="store_true", help="Execute complete once-daily update & strategy pipeline")
     parser.add_argument("--status", action="store_true", help="Print current portfolio status and exit")
     parser.add_argument("--git-push", action="store_true", help="Force git add, commit, and push")
 
@@ -255,12 +298,8 @@ def main() -> None:
         git_sync_push("Manual git sync push")
         return
 
-    if args.rebalance_now:
-        logger.info("Executing immediate on-demand portfolio rebalance...")
-        res = rebalance_portfolio(config=config)
-        print_status()
-        if config.get("git_auto_push", True):
-            git_sync_push(f"On-demand Rebalance: NAV Rs {res['nav']:,.2f}")
+    if args.daily_run or args.rebalance_now:
+        res = run_daily_pipeline(update_datasets=True, git_push_enabled=config.get("git_auto_push", True))
         return
 
     if args.loop:
