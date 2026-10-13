@@ -585,11 +585,14 @@ def generate_readme(state: dict | None = None) -> None:
     win_trades = state.get("winning_trades", 0)
     win_rate = (win_trades / tot_trades * 100.0) if tot_trades > 0 else 0.0
 
+    cfg = load_config()
+    remote_url = cfg.get("git_remote", "https://github.com/Lifox21/Donchain.git")
+
     lines = [
         "# Donchian 240-Day Breakout Quantitative Trading System",
         "",
         "> **Automated Quantitative Strategy Implementation for Indian Equities (NSE)**  ",
-        f"> **Connected Remote:** `https://github.com/Ved-2107/Donchain.git`  ",
+        f"> **Connected Remote:** `{remote_url}`  ",
         f"> **Current Portfolio Status:** Active Continuous Paper Trading | **Base Capital:** ₹{initial_cap:,.2f}",
         "",
         "---",
