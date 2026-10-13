@@ -282,6 +282,7 @@ def run_continuous_bot(poll_interval: int = 60, git_push_enabled: bool = True) -
 def main() -> None:
     parser = argparse.ArgumentParser(description="Donchian 240-Day Breakout Trading Bot")
     parser.add_argument("--loop", action="store_true", help="Run continuous trading loop")
+    parser.add_argument("--interval", type=int, default=60, help="Poll interval in seconds")
     parser.add_argument("--daily-run", "--daily-pipeline", dest="daily_run", action="store_true", help="Execute complete once-daily update & strategy pipeline")
     parser.add_argument("--rebalance-now", action="store_true", help="Execute complete once-daily update & strategy pipeline")
     parser.add_argument("--status", action="store_true", help="Print current portfolio status and exit")
