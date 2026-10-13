@@ -1,79 +1,58 @@
 {
   "initial_capital": 150000.0,
-  "cash": 111762.42,
+  "cash": 120078.99,
   "holdings": {
-    "KABRAEXTRU": {
-      "shares": 15,
-      "entry_price": 795.9,
-      "peak_price": 810.9,
-      "stop_loss_price": 746.03,
-      "current_price": 794.8,
-      "entry_date": "2026-10-12",
-      "industry": "Industrial Equipment",
+    "SHRINGARMS": {
+      "shares": 39,
+      "entry_price": 306.3999938964844,
+      "peak_price": 306.3999938964844,
+      "stop_loss_price": 281.89,
+      "current_price": 306.3999938964844,
+      "entry_date": "2026-10-13",
+      "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": -16.5,
-      "unrealized_pnl_pct": -0.14
+      "unrealized_pnl": 0.0,
+      "unrealized_pnl_pct": 0.0
     },
-    "RBA": {
-      "shares": 131,
-      "entry_price": 91.1,
-      "peak_price": 91.8,
-      "stop_loss_price": 84.46,
-      "current_price": 89.84,
-      "entry_date": "2026-10-12",
-      "industry": "Consumer Services",
+    "SHANTIGOLD": {
+      "shares": 31,
+      "entry_price": 384.4500122070313,
+      "peak_price": 384.4500122070313,
+      "stop_loss_price": 353.69,
+      "current_price": 384.4500122070313,
+      "entry_date": "2026-10-13",
+      "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": -165.06,
-      "unrealized_pnl_pct": -1.38
+      "unrealized_pnl": 0.0,
+      "unrealized_pnl_pct": 0.0
     },
-    "E2E": {
-      "shares": 17,
-      "entry_price": 704.6,
-      "peak_price": 735.0,
-      "stop_loss_price": 676.2,
-      "current_price": 714.0,
-      "entry_date": "2026-10-12",
-      "industry": "Information Technology",
+    "SMCGLOBAL": {
+      "shares": 51,
+      "entry_price": 118.0,
+      "peak_price": 118.0,
+      "stop_loss_price": 108.56,
+      "current_price": 118.0,
+      "entry_date": "2026-10-13",
+      "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": 159.8,
-      "unrealized_pnl_pct": 1.33
+      "unrealized_pnl": 0.0,
+      "unrealized_pnl_pct": 0.0
     }
   },
-  "cooldowns": {
-    "UEL": "2026-10-09",
-    "ASKAUTOLTD": "2026-10-09",
-    "MOREPENLAB": "2026-10-09",
-    "CUPID": "2026-08-06"
-  },
+  "cooldowns": {},
   "nav_history": [
     {
-      "date": "2026-10-09",
-      "nav": 150781.67,
-      "cash": 139007.27,
-      "invested": 11774.4,
-      "holdings_count": 1,
-      "total_return_pct": 0.52
-    },
-    {
-      "date": "2026-10-12",
-      "nav": 147621.04,
-      "cash": 111762.42,
-      "invested": 35829.04,
-      "holdings_count": 3,
-      "total_return_pct": -1.61
-    },
-    {
       "date": "2026-10-13",
-      "nav": 147591.46,
-      "cash": 111762.42,
-      "invested": 35829.04,
+      "nav": 149964.54,
+      "cash": 120078.99,
+      "invested": 29885.55,
       "holdings_count": 3,
-      "total_return_pct": -1.61
+      "total_return_pct": -0.02
     }
   ],
-  "total_trades": 4,
-  "winning_trades": 1,
-  "losing_trades": 3,
-  "realized_pnl": -2294.319739990233,
-  "last_updated": "2026-10-13 14:25:33"
+  "total_trades": 0,
+  "winning_trades": 0,
+  "losing_trades": 0,
+  "realized_pnl": 0.0,
+  "last_updated": "2026-10-13 14:35:40"
 }

@@ -49,13 +49,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Update Market Data
+        run: |
+          python update_daily_datasets.py || true
+
       - name: Run Daily Rebalance
         run: |
           python trading_bot.py --rebalance-now
 
       - name: Commit and Push Updates
         run: |
-          git add README.md portfolio_state.json trade_log.csv
+          git add README.md portfolio_state.json trade_log.csv Daily/
           if git diff --cached --quiet; then
             echo "No portfolio changes to commit."
           else

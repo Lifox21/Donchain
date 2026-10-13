@@ -10,14 +10,14 @@
 
 | Metric | Current Value | Strategy Reference |
 | :--- | :---: | :--- |
-| **Portfolio NAV** | **₹147,591.46** | Initial Capital: ₹150,000.00 |
-| **Net Return** | **-1.61%** | All fees, STT, GST and slippage accounted |
-| **Available Cash** | **₹111,762.42** | Ready for opportunistic deployment |
-| **Invested Capital** | **₹35,829.04** | Allocated across active momentum leaders |
+| **Portfolio NAV** | **₹149,964.54** | Initial Capital: ₹150,000.00 |
+| **Net Return** | **-0.02%** | All fees, STT, GST and slippage accounted |
+| **Available Cash** | **₹120,078.99** | Ready for opportunistic deployment |
+| **Invested Capital** | **₹29,885.55** | Allocated across active momentum leaders |
 | **Active Holdings** | **3 Positions** | Max limit: 12 stocks (8% single-stock cap) |
-| **Total Completed Trades** | **4 Trades** | Closed via 8% trailing stop-loss |
-| **Win Rate** | **25.0%** | High profit-factor trend following |
-| **Last Bot Update** | `2026-10-13 14:25:33` | Auto-synced to GitHub |
+| **Total Completed Trades** | **0 Trades** | Closed via 8% trailing stop-loss |
+| **Win Rate** | **0.0%** | High profit-factor trend following |
+| **Last Bot Update** | `2026-10-13 14:35:40` | Auto-synced to GitHub |
 
 ---
 
@@ -25,9 +25,9 @@
 
 | Symbol | Sector | Shares | Entry Price | Current Price | Peak Price | Trailing Stop (8%) | Unrealized PnL | Return % |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **KABRAEXTRU** | Industrial Equipment | 15 | ₹795.90 | ₹794.80 | ₹810.90 | ₹746.03 | **₹-16.50** | **-0.14%** |
-| **RBA** | Consumer Services | 131 | ₹91.10 | ₹89.84 | ₹91.80 | ₹84.46 | **₹-165.06** | **-1.38%** |
-| **E2E** | Information Technology | 17 | ₹704.60 | ₹714.00 | ₹735.00 | ₹676.20 | **₹+159.80** | **+1.33%** |
+| **SHRINGARMS** | Unclassified | 39 | ₹306.40 | ₹306.40 | ₹306.40 | ₹281.89 | **₹+0.00** | **+0.00%** |
+| **SHANTIGOLD** | Unclassified | 31 | ₹384.45 | ₹384.45 | ₹384.45 | ₹353.69 | **₹+0.00** | **+0.00%** |
+| **SMCGLOBAL** | Unclassified | 51 | ₹118.00 | ₹118.00 | ₹118.00 | ₹108.56 | **₹+0.00** | **+0.00%** |
 
 ---
 
