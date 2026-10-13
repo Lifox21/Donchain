@@ -1,42 +1,42 @@
 {
   "initial_capital": 150000.0,
-  "cash": 118369.13999145506,
+  "cash": 111762.42,
   "holdings": {
     "KABRAEXTRU": {
-      "shares": 24,
-      "entry_price": 477.6000061035156,
-      "peak_price": 810.9000244140625,
-      "stop_loss_price": 746.0280224609376,
-      "current_price": 793.1500244140625,
-      "entry_date": "2026-08-06",
-      "industry": "Unclassified",
+      "shares": 15,
+      "entry_price": 795.9,
+      "peak_price": 810.9,
+      "stop_loss_price": 746.03,
+      "current_price": 794.8,
+      "entry_date": "2026-10-12",
+      "industry": "Industrial Equipment",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": 7573.2,
-      "unrealized_pnl_pct": 66.07
+      "unrealized_pnl": -16.5,
+      "unrealized_pnl_pct": -0.14
     },
     "RBA": {
-      "shares": 130,
-      "entry_price": 90.25,
-      "peak_price": 91.8000030517578,
-      "stop_loss_price": 84.45600280761718,
-      "current_price": 89.91000366210938,
-      "entry_date": "2026-08-06",
-      "industry": "Unclassified",
+      "shares": 131,
+      "entry_price": 91.1,
+      "peak_price": 91.8,
+      "stop_loss_price": 84.46,
+      "current_price": 89.84,
+      "entry_date": "2026-10-12",
+      "industry": "Consumer Services",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": -44.2,
-      "unrealized_pnl_pct": -0.38
+      "unrealized_pnl": -165.06,
+      "unrealized_pnl_pct": -1.38
     },
     "E2E": {
-      "shares": 10,
-      "entry_price": 605.7000122070312,
+      "shares": 17,
+      "entry_price": 704.6,
       "peak_price": 735.0,
       "stop_loss_price": 676.2,
-      "current_price": 710.0,
-      "entry_date": "2026-08-06",
-      "industry": "Unclassified",
+      "current_price": 714.0,
+      "entry_date": "2026-10-12",
+      "industry": "Information Technology",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": 1043.0,
-      "unrealized_pnl_pct": 17.22
+      "unrealized_pnl": 159.8,
+      "unrealized_pnl_pct": 1.33
     }
   },
   "cooldowns": {
@@ -47,22 +47,6 @@
   },
   "nav_history": [
     {
-      "date": "2026-08-06",
-      "nav": 149964.41,
-      "cash": 119968.57,
-      "invested": 29995.84,
-      "holdings_count": 3,
-      "total_return_pct": -0.02
-    },
-    {
-      "date": "2026-10-09",
-      "nav": 151088.57,
-      "cash": 139007.27,
-      "invested": 12081.3,
-      "holdings_count": 1,
-      "total_return_pct": 0.73
-    },
-    {
       "date": "2026-10-09",
       "nav": 150781.67,
       "cash": 139007.27,
@@ -71,57 +55,25 @@
       "total_return_pct": 0.52
     },
     {
-      "date": "2026-08-06",
+      "date": "2026-10-12",
       "nav": 147621.04,
-      "cash": 118369.14,
-      "invested": 29251.9,
+      "cash": 111762.42,
+      "invested": 35829.04,
       "holdings_count": 3,
-      "total_return_pct": -1.59
+      "total_return_pct": -1.61
     },
     {
-      "date": "2026-08-06",
-      "nav": 147621.04,
-      "cash": 118369.14,
-      "invested": 29251.9,
+      "date": "2026-10-13",
+      "nav": 147591.46,
+      "cash": 111762.42,
+      "invested": 35829.04,
       "holdings_count": 3,
-      "total_return_pct": -1.59
-    },
-    {
-      "date": "2026-08-06",
-      "nav": 147621.04,
-      "cash": 118369.14,
-      "invested": 29251.9,
-      "holdings_count": 3,
-      "total_return_pct": -1.59
-    },
-    {
-      "date": "2026-08-06",
-      "nav": 147621.04,
-      "cash": 118369.14,
-      "invested": 29251.9,
-      "holdings_count": 3,
-      "total_return_pct": -1.59
-    },
-    {
-      "date": "2026-08-06",
-      "nav": 147621.04,
-      "cash": 118369.14,
-      "invested": 29251.9,
-      "holdings_count": 3,
-      "total_return_pct": -1.59
-    },
-    {
-      "date": "2026-08-06",
-      "nav": 156193.04,
-      "cash": 118369.14,
-      "invested": 37823.9,
-      "holdings_count": 3,
-      "total_return_pct": 4.13
+      "total_return_pct": -1.61
     }
   ],
   "total_trades": 4,
   "winning_trades": 1,
   "losing_trades": 3,
   "realized_pnl": -2294.319739990233,
-  "last_updated": "2026-10-13 14:16:14"
+  "last_updated": "2026-10-13 14:25:33"
 }

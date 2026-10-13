@@ -449,6 +449,29 @@ def rebalance_portfolio(
     max_pos_val = total_equity * config["max_position_pct"]
     max_sector_val = total_equity * config["max_sector_pct"]
     available_slots = config["max_positions"] - len(state["holdings"])
+    execution_date = datetime.now(IST).strftime("%Y-%m-%d")
+
+    # Pre-fetch real live prices for buy candidates so execution uses TODAY'S real market prices
+    candidate_tickers = [f"{b['symbol']}.NS" for b in buy_signals[:available_slots + 5]]
+    live_buy_prices = {}
+    if candidate_tickers:
+        try:
+            import yfinance as yf
+            live_df = yf.download(candidate_tickers, period="5d", progress=False, threads=True)
+            for b in buy_signals[:available_slots + 5]:
+                sym = b["symbol"]
+                t_str = f"{sym}.NS"
+                c_s = pd.Series(dtype=float)
+                if isinstance(live_df.columns, pd.MultiIndex):
+                    if ("Close", t_str) in live_df.columns:
+                        c_s = live_df["Close"][t_str].dropna()
+                else:
+                    if "Close" in live_df:
+                        c_s = live_df["Close"].dropna()
+                if not c_s.empty:
+                    live_buy_prices[sym] = float(c_s.iloc[-1])
+        except Exception as e:
+            logger.warning(f"Could not fetch live prices for buy candidates: {e}")
 
     for buy_sig in buy_signals:
         if available_slots <= 0:
@@ -462,7 +485,9 @@ def rebalance_portfolio(
         if curr_sec_val >= max_sector_val:
             continue
 
-        p = buy_sig["price"]
+        # Use today's actual live market price if available; fallback to signal price
+        p = live_buy_prices.get(sym, buy_sig["price"])
+        p = round(p, 2)
         target_allocation = min(max_pos_val, max_sector_val - curr_sec_val, state["cash"])
         if target_allocation < 1000.0 or p <= 0:
             continue
@@ -471,17 +496,17 @@ def rebalance_portfolio(
         if shares <= 0:
             continue
 
-        gross_val = shares * p
+        gross_val = round(shares * p, 2)
         fees = cost_model.estimate_fees("BUY", gross_val)
-        total_cost = gross_val + fees["total"]
+        total_cost = round(gross_val + fees["total"], 2)
 
         if total_cost > state["cash"]:
             shares = int((state["cash"] - fees["total"]) // p)
             if shares <= 0:
                 continue
-            gross_val = shares * p
+            gross_val = round(shares * p, 2)
             fees = cost_model.estimate_fees("BUY", gross_val)
-            total_cost = gross_val + fees["total"]
+            total_cost = round(gross_val + fees["total"], 2)
 
         state["cash"] -= total_cost
         sector_exposure[ind] = curr_sec_val + gross_val
@@ -493,7 +518,7 @@ def rebalance_portfolio(
             "peak_price": p,
             "stop_loss_price": round(p * 0.92, 2),
             "current_price": p,
-            "entry_date": buy_sig["date"],
+            "entry_date": execution_date,
             "industry": ind,
             "signal_type": buy_sig["type"],
             "unrealized_pnl": 0.0,
@@ -509,7 +534,7 @@ def rebalance_portfolio(
             fees=fees["total"],
             net_val=total_cost,
             reason=f"{buy_sig['type']} (Prior High: {buy_sig['prior_high']:.2f})",
-            timestamp=f"{buy_sig['date']} 15:30:00",
+            timestamp=f"{execution_date} 15:30:00",
         )
         trades_executed.append(f"BOUGHT {sym}: {shares} shares @ Rs {p:.2f} ({ind})")
 
