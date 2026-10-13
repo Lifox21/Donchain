@@ -9,6 +9,7 @@ import glob
 import time
 import logging
 from datetime import datetime, timedelta
+from pathlib import Path
 import pandas as pd
 import yfinance as yf
 
