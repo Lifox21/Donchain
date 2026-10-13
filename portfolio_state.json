@@ -5,38 +5,38 @@
     "KABRAEXTRU": {
       "shares": 24,
       "entry_price": 477.6000061035156,
-      "peak_price": 485.4500122070313,
-      "stop_loss_price": 446.6140112304688,
-      "current_price": 477.6000061035156,
+      "peak_price": 810.9000244140625,
+      "stop_loss_price": 746.0280224609376,
+      "current_price": 793.1500244140625,
       "entry_date": "2026-08-06",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": 0.0,
-      "unrealized_pnl_pct": 0.0
+      "unrealized_pnl": 7573.2,
+      "unrealized_pnl_pct": 66.07
     },
     "RBA": {
       "shares": 130,
       "entry_price": 90.25,
       "peak_price": 91.8000030517578,
       "stop_loss_price": 84.45600280761718,
-      "current_price": 90.25,
+      "current_price": 89.91000366210938,
       "entry_date": "2026-08-06",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": 0.0,
-      "unrealized_pnl_pct": 0.0
+      "unrealized_pnl": -44.2,
+      "unrealized_pnl_pct": -0.38
     },
     "E2E": {
       "shares": 10,
       "entry_price": 605.7000122070312,
-      "peak_price": 627.7000122070312,
-      "stop_loss_price": 577.4840112304688,
-      "current_price": 605.7000122070312,
+      "peak_price": 735.0,
+      "stop_loss_price": 676.2,
+      "current_price": 710.0,
       "entry_date": "2026-08-06",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": 0.0,
-      "unrealized_pnl_pct": 0.0
+      "unrealized_pnl": 1043.0,
+      "unrealized_pnl_pct": 17.22
     }
   },
   "cooldowns": {
@@ -109,11 +109,19 @@
       "invested": 29251.9,
       "holdings_count": 3,
       "total_return_pct": -1.59
+    },
+    {
+      "date": "2026-08-06",
+      "nav": 156193.04,
+      "cash": 118369.14,
+      "invested": 37823.9,
+      "holdings_count": 3,
+      "total_return_pct": 4.13
     }
   ],
   "total_trades": 4,
   "winning_trades": 1,
   "losing_trades": 3,
   "realized_pnl": -2294.319739990233,
-  "last_updated": "2026-10-13 01:14:37"
+  "last_updated": "2026-10-13 14:16:14"
 }

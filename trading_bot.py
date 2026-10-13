@@ -183,13 +183,22 @@ def run_continuous_bot(poll_interval: int = 60, git_push_enabled: bool = True) -
                         try:
                             import yfinance as yf
                             tickers = [f"{s}.NS" for s in holdings.keys()]
-                            data = yf.download(tickers, period="1d", progress=False, threads=True)
+                            data = yf.download(tickers, period="5d", progress=False, threads=True)
                             for s, pos in list(holdings.items()):
                                 t_str = f"{s}.NS"
-                                sub = data[t_str] if len(tickers) > 1 else data
-                                if "Close" in sub and not sub["Close"].dropna().empty:
-                                    curr_p = float(sub["Close"].dropna().iloc[-1])
-                                    high_p = float(sub["High"].dropna().iloc[-1]) if "High" in sub and not sub["High"].dropna().empty else curr_p
+                                c_series, h_series = pd.Series(dtype=float), pd.Series(dtype=float)
+                                if isinstance(data.columns, pd.MultiIndex):
+                                    if ("Close", t_str) in data.columns:
+                                        c_series = data["Close"][t_str].dropna()
+                                        h_series = data["High"][t_str].dropna() if ("High", t_str) in data.columns else c_series
+                                else:
+                                    if "Close" in data:
+                                        c_series = data["Close"].dropna()
+                                        h_series = data["High"].dropna() if "High" in data else c_series
+
+                                if not c_series.empty:
+                                    curr_p = float(c_series.iloc[-1])
+                                    high_p = float(h_series.iloc[-1]) if not h_series.empty else curr_p
                                     peak_p = max(pos.get("peak_price", pos["entry_price"]), high_p)
                                     sl_price = peak_p * (1.0 - 0.08)
                                     pos["peak_price"] = peak_p

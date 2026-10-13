@@ -238,14 +238,46 @@ def scan_latest_market_signals(
         except Exception as e:
             logger.warning(f"Live data fetch error: {e}")
 
+    # Real-time live quotes overlay for currently held positions via yfinance
+    live_held_quotes = {}
+    if holdings:
+        try:
+            import yfinance as yf
+            live_tickers = [f"{s}.NS" for s in holdings.keys()]
+            data_held = yf.download(live_tickers, period="5d", progress=False, threads=True)
+            for s in holdings.keys():
+                t_str = f"{s}.NS"
+                c_s, h_s = pd.Series(dtype=float), pd.Series(dtype=float)
+                if isinstance(data_held.columns, pd.MultiIndex):
+                    if ("Close", t_str) in data_held.columns:
+                        c_s = data_held["Close"][t_str].dropna()
+                        h_s = data_held["High"][t_str].dropna() if ("High", t_str) in data_held.columns else c_s
+                else:
+                    if "Close" in data_held:
+                        c_s = data_held["Close"].dropna()
+                        h_s = data_held["High"].dropna() if "High" in data_held else c_s
+                if not c_s.empty:
+                    live_held_quotes[s] = {
+                        "close": float(c_s.iloc[-1]),
+                        "high": float(h_s.iloc[-1]) if not h_s.empty else float(c_s.iloc[-1]),
+                        "date": c_s.index[-1].strftime("%Y-%m-%d"),
+                    }
+        except Exception as e:
+            logger.warning(f"Live quotes overlay warning: {e}")
+
     logger.info(f"Evaluating breakout signals across {len(stock_frames)} assets...")
     for symbol, df in stock_frames.items():
         try:
-
             last_row = df.iloc[-1]
             last_date = last_row["Date"].strftime("%Y-%m-%d")
             close_p = float(last_row["Close"])
             high_p = float(last_row["High"]) if "High" in last_row else close_p
+
+            if symbol in live_held_quotes:
+                close_p = live_held_quotes[symbol]["close"]
+                high_p = max(high_p, live_held_quotes[symbol]["high"])
+                last_date = live_held_quotes[symbol]["date"]
+
             current_prices[symbol] = {
                 "price": close_p,
                 "high": high_p,

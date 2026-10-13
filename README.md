@@ -10,14 +10,14 @@
 
 | Metric | Current Value | Strategy Reference |
 | :--- | :---: | :--- |
-| **Portfolio NAV** | **₹147,621.04** | Initial Capital: ₹150,000.00 |
-| **Net Return** | **-1.59%** | All fees, STT, GST and slippage accounted |
+| **Portfolio NAV** | **₹156,193.04** | Initial Capital: ₹150,000.00 |
+| **Net Return** | **+4.13%** | All fees, STT, GST and slippage accounted |
 | **Available Cash** | **₹118,369.14** | Ready for opportunistic deployment |
-| **Invested Capital** | **₹29,251.90** | Allocated across active momentum leaders |
+| **Invested Capital** | **₹37,823.90** | Allocated across active momentum leaders |
 | **Active Holdings** | **3 Positions** | Max limit: 12 stocks (8% single-stock cap) |
 | **Total Completed Trades** | **4 Trades** | Closed via 8% trailing stop-loss |
 | **Win Rate** | **25.0%** | High profit-factor trend following |
-| **Last Bot Update** | `2026-10-13 01:14:37` | Auto-synced to GitHub |
+| **Last Bot Update** | `2026-10-13 14:16:14` | Auto-synced to GitHub |
 
 ---
 
@@ -25,9 +25,9 @@
 
 | Symbol | Sector | Shares | Entry Price | Current Price | Peak Price | Trailing Stop (8%) | Unrealized PnL | Return % |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **KABRAEXTRU** | Unclassified | 24 | ₹477.60 | ₹477.60 | ₹485.45 | ₹446.61 | **₹+0.00** | **+0.00%** |
-| **RBA** | Unclassified | 130 | ₹90.25 | ₹90.25 | ₹91.80 | ₹84.46 | **₹+0.00** | **+0.00%** |
-| **E2E** | Unclassified | 10 | ₹605.70 | ₹605.70 | ₹627.70 | ₹577.48 | **₹+0.00** | **+0.00%** |
+| **KABRAEXTRU** | Unclassified | 24 | ₹477.60 | ₹793.15 | ₹810.90 | ₹746.03 | **₹+7573.20** | **+66.07%** |
+| **RBA** | Unclassified | 130 | ₹90.25 | ₹89.91 | ₹91.80 | ₹84.46 | **₹-44.20** | **-0.38%** |
+| **E2E** | Unclassified | 10 | ₹605.70 | ₹710.00 | ₹735.00 | ₹676.20 | **₹+1043.00** | **+17.22%** |
 
 ---
 
