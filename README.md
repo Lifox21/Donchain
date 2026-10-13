@@ -10,14 +10,14 @@
 
 | Metric | Current Value | Strategy Reference |
 | :--- | :---: | :--- |
-| **Portfolio NAV** | **₹149,964.54** | Initial Capital: ₹150,000.00 |
-| **Net Return** | **-0.02%** | All fees, STT, GST and slippage accounted |
+| **Portfolio NAV** | **₹150,292.98** | Initial Capital: ₹150,000.00 |
+| **Net Return** | **+0.20%** | All fees, STT, GST and slippage accounted |
 | **Available Cash** | **₹120,078.99** | Ready for opportunistic deployment |
-| **Invested Capital** | **₹29,885.55** | Allocated across active momentum leaders |
+| **Invested Capital** | **₹30,213.99** | Allocated across active momentum leaders |
 | **Active Holdings** | **3 Positions** | Max limit: 12 stocks (8% single-stock cap) |
 | **Total Completed Trades** | **0 Trades** | Closed via 8% trailing stop-loss |
 | **Win Rate** | **0.0%** | High profit-factor trend following |
-| **Last Bot Update** | `2026-10-13 14:35:40` | Auto-synced to GitHub |
+| **Last Bot Update** | `2026-10-13 16:41:27` | Auto-synced to GitHub |
 
 ---
 
@@ -25,9 +25,9 @@
 
 | Symbol | Sector | Shares | Entry Price | Current Price | Peak Price | Trailing Stop (8%) | Unrealized PnL | Return % |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **SHRINGARMS** | Unclassified | 39 | ₹306.40 | ₹306.40 | ₹306.40 | ₹281.89 | **₹+0.00** | **+0.00%** |
-| **SHANTIGOLD** | Unclassified | 31 | ₹384.45 | ₹384.45 | ₹384.45 | ₹353.69 | **₹+0.00** | **+0.00%** |
-| **SMCGLOBAL** | Unclassified | 51 | ₹118.00 | ₹118.00 | ₹118.00 | ₹108.56 | **₹+0.00** | **+0.00%** |
+| **SHRINGARMS** | Unclassified | 39 | ₹306.40 | ₹310.85 | ₹317.99 | ₹292.55 | **₹+173.55** | **+1.45%** |
+| **SHANTIGOLD** | Unclassified | 31 | ₹384.45 | ₹390.45 | ₹394.95 | ₹363.35 | **₹+186.00** | **+1.56%** |
+| **SMCGLOBAL** | Unclassified | 51 | ₹118.00 | ₹117.39 | ₹120.35 | ₹110.72 | **₹-31.11** | **-0.52%** |
 
 ---
 
