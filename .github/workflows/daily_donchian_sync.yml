@@ -8,11 +8,11 @@ on:
     # 07:30 UTC = 01:00 PM IST (Mid-day scan)
     # 09:45 UTC = 03:15 PM IST (Market EOD 15:15 Rebalance Window)
     # 10:05 UTC = 03:35 PM IST (Market Close Final Sync)
-    - cron: '45 3 * * 1-5'
+    - cron: '15 3 * * 1-5'
     - cron: '30 5 * * 1-5'
     - cron: '30 7 * * 1-5'
-    - cron: '45 9 * * 1-5'
-    - cron: '5 10 * * 1-5'
+    - cron: '15 9 * * 1-5'
+    - cron: '35 9 * * 1-5'
   workflow_dispatch:
 
 permissions:
