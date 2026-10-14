@@ -5,38 +5,38 @@
     "SHRINGARMS": {
       "shares": 39,
       "entry_price": 306.3999938964844,
-      "peak_price": 317.989990234375,
-      "stop_loss_price": 292.550791015625,
-      "current_price": 310.8500061035156,
+      "peak_price": 324.3999938964844,
+      "stop_loss_price": 298.44799438476565,
+      "current_price": 316.30999755859375,
       "entry_date": "2026-10-13",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": 173.55,
-      "unrealized_pnl_pct": 1.45
+      "unrealized_pnl": 386.49,
+      "unrealized_pnl_pct": 3.23
     },
     "SHANTIGOLD": {
       "shares": 31,
       "entry_price": 384.4500122070313,
-      "peak_price": 394.95001220703125,
-      "stop_loss_price": 363.35401123046876,
-      "current_price": 390.45001220703125,
+      "peak_price": 404.7999877929688,
+      "stop_loss_price": 372.41598876953134,
+      "current_price": 394.0,
       "entry_date": "2026-10-13",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": 186.0,
-      "unrealized_pnl_pct": 1.56
+      "unrealized_pnl": 296.05,
+      "unrealized_pnl_pct": 2.48
     },
     "SMCGLOBAL": {
       "shares": 51,
       "entry_price": 118.0,
-      "peak_price": 120.3499984741211,
-      "stop_loss_price": 110.72199859619141,
-      "current_price": 117.38999938964844,
+      "peak_price": 122.4499969482422,
+      "stop_loss_price": 112.65399719238283,
+      "current_price": 116.11000061035156,
       "entry_date": "2026-10-13",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": -31.11,
-      "unrealized_pnl_pct": -0.52
+      "unrealized_pnl": -96.39,
+      "unrealized_pnl_pct": -1.6
     }
   },
   "cooldowns": {},
@@ -88,11 +88,19 @@
       "invested": 30213.99,
       "holdings_count": 3,
       "total_return_pct": 0.2
+    },
+    {
+      "date": "2026-10-13",
+      "nav": 150550.69,
+      "cash": 120078.99,
+      "invested": 30471.7,
+      "holdings_count": 3,
+      "total_return_pct": 0.37
     }
   ],
   "total_trades": 0,
   "winning_trades": 0,
   "losing_trades": 0,
   "realized_pnl": 0.0,
-  "last_updated": "2026-10-13 20:36:03"
+  "last_updated": "2026-10-14 14:36:29"
 }
