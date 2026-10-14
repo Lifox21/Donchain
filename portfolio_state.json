@@ -7,36 +7,36 @@
       "entry_price": 306.3999938964844,
       "peak_price": 324.95001220703125,
       "stop_loss_price": 298.9540112304688,
-      "current_price": 317.739990234375,
+      "current_price": 310.8500061035156,
       "entry_date": "2026-10-13",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": 442.26,
-      "unrealized_pnl_pct": 3.7
+      "unrealized_pnl": 173.55,
+      "unrealized_pnl_pct": 1.45
     },
     "SHANTIGOLD": {
       "shares": 31,
       "entry_price": 384.4500122070313,
       "peak_price": 404.7999877929688,
       "stop_loss_price": 372.41598876953134,
-      "current_price": 387.8999938964844,
+      "current_price": 390.45001220703125,
       "entry_date": "2026-10-13",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": 106.95,
-      "unrealized_pnl_pct": 0.9
+      "unrealized_pnl": 186.0,
+      "unrealized_pnl_pct": 1.56
     },
     "SMCGLOBAL": {
       "shares": 51,
       "entry_price": 118.0,
       "peak_price": 122.4499969482422,
       "stop_loss_price": 112.65399719238283,
-      "current_price": 115.18000030517578,
+      "current_price": 117.38999938964844,
       "entry_date": "2026-10-13",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": -143.82,
-      "unrealized_pnl_pct": -2.39
+      "unrealized_pnl": -31.11,
+      "unrealized_pnl_pct": -0.52
     }
   },
   "cooldowns": {},
@@ -128,11 +128,19 @@
       "invested": 30290.94,
       "holdings_count": 3,
       "total_return_pct": 0.25
+    },
+    {
+      "date": "2026-10-13",
+      "nav": 150292.98,
+      "cash": 120078.99,
+      "invested": 30213.99,
+      "holdings_count": 3,
+      "total_return_pct": 0.2
     }
   ],
   "total_trades": 0,
   "winning_trades": 0,
   "losing_trades": 0,
   "realized_pnl": 0.0,
-  "last_updated": "2026-10-14 20:34:06"
+  "last_updated": "2026-10-15 04:09:53"
 }
