@@ -10,14 +10,14 @@
 
 | Metric | Current Value | Strategy Reference |
 | :--- | :---: | :--- |
-| **Portfolio NAV** | **₹150,292.98** | Initial Capital: ₹150,000.00 |
-| **Net Return** | **+0.20%** | All fees, STT, GST and slippage accounted |
-| **Available Cash** | **₹120,078.99** | Ready for opportunistic deployment |
-| **Invested Capital** | **₹30,213.99** | Allocated across active momentum leaders |
+| **Portfolio NAV** | **₹148,881.04** | Initial Capital: ₹150,000.00 |
+| **Net Return** | **-0.75%** | All fees, STT, GST and slippage accounted |
+| **Available Cash** | **₹119,409.07** | Ready for opportunistic deployment |
+| **Invested Capital** | **₹29,471.97** | Allocated across active momentum leaders |
 | **Active Holdings** | **3 Positions** | Max limit: 12 stocks (8% single-stock cap) |
-| **Total Completed Trades** | **0 Trades** | Closed via 8% trailing stop-loss |
+| **Total Completed Trades** | **2 Trades** | Closed via 8% trailing stop-loss |
 | **Win Rate** | **0.0%** | High profit-factor trend following |
-| **Last Bot Update** | `2026-10-15 04:09:53` | Auto-synced to GitHub |
+| **Last Bot Update** | `2026-10-15 13:49:42` | Auto-synced to GitHub |
 
 ---
 
@@ -25,9 +25,9 @@
 
 | Symbol | Sector | Shares | Entry Price | Current Price | Peak Price | Trailing Stop (8%) | Unrealized PnL | Return % |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **SHRINGARMS** | Unclassified | 39 | ₹306.40 | ₹310.85 | ₹324.95 | ₹298.95 | **₹+173.55** | **+1.45%** |
-| **SHANTIGOLD** | Unclassified | 31 | ₹384.45 | ₹390.45 | ₹404.80 | ₹372.42 | **₹+186.00** | **+1.56%** |
-| **SMCGLOBAL** | Unclassified | 51 | ₹118.00 | ₹117.39 | ₹122.45 | ₹112.65 | **₹-31.11** | **-0.52%** |
+| **SHANTIGOLD** | Unclassified | 31 | ₹384.45 | ₹383.80 | ₹404.80 | ₹372.42 | **₹-20.15** | **-0.17%** |
+| **BLUSPRING** | Unclassified | 66 | ₹179.82 | ₹179.82 | ₹179.82 | ₹165.43 | **₹+0.00** | **+0.00%** |
+| **PAUSHAKLTD** | Unclassified | 7 | ₹815.15 | ₹815.15 | ₹815.15 | ₹749.94 | **₹+0.00** | **+0.00%** |
 
 ---
 
