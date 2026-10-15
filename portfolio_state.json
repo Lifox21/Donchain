@@ -1,37 +1,37 @@
 {
   "initial_capital": 150000.0,
-  "cash": 119409.0704779053,
+  "cash": 118911.98047790531,
   "holdings": {
     "SHANTIGOLD": {
       "shares": 31,
       "entry_price": 384.4500122070313,
       "peak_price": 404.7999877929688,
       "stop_loss_price": 372.41598876953134,
-      "current_price": 383.79998779296875,
+      "current_price": 390.95001220703125,
       "entry_date": "2026-10-13",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": -20.15,
-      "unrealized_pnl_pct": -0.17
+      "unrealized_pnl": 201.5,
+      "unrealized_pnl_pct": 1.69
     },
     "BLUSPRING": {
       "shares": 66,
       "entry_price": 179.82,
-      "peak_price": 179.82,
-      "stop_loss_price": 165.43,
-      "current_price": 179.82,
+      "peak_price": 181.8999938964844,
+      "stop_loss_price": 167.34799438476566,
+      "current_price": 172.67999267578125,
       "entry_date": "2026-10-15",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": 0.0,
-      "unrealized_pnl_pct": 0.0
+      "unrealized_pnl": -471.24,
+      "unrealized_pnl_pct": -3.97
     },
-    "PAUSHAKLTD": {
-      "shares": 7,
-      "entry_price": 815.15,
-      "peak_price": 815.15,
-      "stop_loss_price": 749.94,
-      "current_price": 815.15,
+    "SKYGOLD": {
+      "shares": 6,
+      "entry_price": 1001.45,
+      "peak_price": 1001.45,
+      "stop_loss_price": 921.33,
+      "current_price": 1001.45,
       "entry_date": "2026-10-15",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
@@ -41,7 +41,8 @@
   },
   "cooldowns": {
     "SHRINGARMS": "2026-10-15",
-    "SMCGLOBAL": "2026-10-15"
+    "SMCGLOBAL": "2026-10-15",
+    "PAUSHAKLTD": "2026-10-15"
   },
   "nav_history": [
     {
@@ -147,11 +148,19 @@
       "invested": 29607.18,
       "holdings_count": 3,
       "total_return_pct": -0.66
+    },
+    {
+      "date": "2026-10-15",
+      "nav": 148380.31,
+      "cash": 118911.98,
+      "invested": 29468.33,
+      "holdings_count": 3,
+      "total_return_pct": -1.08
     }
   ],
-  "total_trades": 2,
+  "total_trades": 3,
   "winning_trades": 0,
-  "losing_trades": 2,
-  "realized_pnl": -1042.4992840576178,
-  "last_updated": "2026-10-15 13:49:42"
+  "losing_trades": 3,
+  "realized_pnl": -1229.8092840576182,
+  "last_updated": "2026-10-15 15:44:03"
 }
