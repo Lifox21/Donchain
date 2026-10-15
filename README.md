@@ -17,7 +17,7 @@
 | **Active Holdings** | **3 Positions** | Max limit: 12 stocks (8% single-stock cap) |
 | **Total Completed Trades** | **3 Trades** | Closed via 8% trailing stop-loss |
 | **Win Rate** | **0.0%** | High profit-factor trend following |
-| **Last Bot Update** | `2026-10-15 15:44:03` | Auto-synced to GitHub |
+| **Last Bot Update** | `2026-10-15 18:20:01` | Auto-synced to GitHub |
 
 ---
 
@@ -27,7 +27,7 @@
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **SHANTIGOLD** | Unclassified | 31 | ₹384.45 | ₹390.95 | ₹404.80 | ₹372.42 | **₹+201.50** | **+1.69%** |
 | **BLUSPRING** | Unclassified | 66 | ₹179.82 | ₹172.68 | ₹181.90 | ₹167.35 | **₹-471.24** | **-3.97%** |
-| **SKYGOLD** | Unclassified | 6 | ₹1001.45 | ₹1001.45 | ₹1001.45 | ₹921.33 | **₹+0.00** | **+0.00%** |
+| **SKYGOLD** | Unclassified | 6 | ₹1001.45 | ₹1001.45 | ₹1021.70 | ₹939.96 | **₹+0.00** | **+0.00%** |
 
 ---
 

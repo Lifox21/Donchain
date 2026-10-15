@@ -29,9 +29,9 @@
     "SKYGOLD": {
       "shares": 6,
       "entry_price": 1001.45,
-      "peak_price": 1001.45,
-      "stop_loss_price": 921.33,
-      "current_price": 1001.45,
+      "peak_price": 1021.7000122070312,
+      "stop_loss_price": 939.9640112304688,
+      "current_price": 1001.4500122070312,
       "entry_date": "2026-10-15",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
@@ -156,11 +156,19 @@
       "invested": 29468.33,
       "holdings_count": 3,
       "total_return_pct": -1.08
+    },
+    {
+      "date": "2026-10-15",
+      "nav": 148437.01,
+      "cash": 118911.98,
+      "invested": 29525.03,
+      "holdings_count": 3,
+      "total_return_pct": -1.04
     }
   ],
   "total_trades": 3,
   "winning_trades": 0,
   "losing_trades": 3,
   "realized_pnl": -1229.8092840576182,
-  "last_updated": "2026-10-15 15:44:03"
+  "last_updated": "2026-10-15 18:20:01"
 }
