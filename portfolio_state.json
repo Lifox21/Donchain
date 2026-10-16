@@ -1,38 +1,38 @@
 {
   "initial_capital": 150000.0,
-  "cash": 118911.98047790531,
+  "cash": 119353.17071960453,
   "holdings": {
     "SHANTIGOLD": {
       "shares": 31,
       "entry_price": 384.4500122070313,
-      "peak_price": 404.7999877929688,
-      "stop_loss_price": 372.41598876953134,
-      "current_price": 390.95001220703125,
+      "peak_price": 425.0,
+      "stop_loss_price": 391.0,
+      "current_price": 422.25,
       "entry_date": "2026-10-13",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": 201.5,
-      "unrealized_pnl_pct": 1.69
-    },
-    "BLUSPRING": {
-      "shares": 66,
-      "entry_price": 179.82,
-      "peak_price": 181.8999938964844,
-      "stop_loss_price": 167.34799438476566,
-      "current_price": 172.67999267578125,
-      "entry_date": "2026-10-15",
-      "industry": "Unclassified",
-      "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": -471.24,
-      "unrealized_pnl_pct": -3.97
+      "unrealized_pnl": 1171.8,
+      "unrealized_pnl_pct": 9.83
     },
     "SKYGOLD": {
       "shares": 6,
       "entry_price": 1001.45,
-      "peak_price": 1021.7000122070312,
-      "stop_loss_price": 939.9640112304688,
-      "current_price": 1001.4500122070312,
+      "peak_price": 1074.699951171875,
+      "stop_loss_price": 988.7239550781251,
+      "current_price": 1052.0,
       "entry_date": "2026-10-15",
+      "industry": "Unclassified",
+      "signal_type": "DONCHIAN_240_BREAKOUT",
+      "unrealized_pnl": 303.3,
+      "unrealized_pnl_pct": 5.05
+    },
+    "PCJEWELLER": {
+      "shares": 628,
+      "entry_price": 16.6,
+      "peak_price": 16.6,
+      "stop_loss_price": 15.27,
+      "current_price": 16.6,
+      "entry_date": "2026-10-16",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
       "unrealized_pnl": 0.0,
@@ -42,7 +42,8 @@
   "cooldowns": {
     "SHRINGARMS": "2026-10-15",
     "SMCGLOBAL": "2026-10-15",
-    "PAUSHAKLTD": "2026-10-15"
+    "PAUSHAKLTD": "2026-10-15",
+    "BLUSPRING": "2026-10-16"
   },
   "nav_history": [
     {
@@ -180,11 +181,19 @@
       "invested": 29525.03,
       "holdings_count": 3,
       "total_return_pct": -1.04
+    },
+    {
+      "date": "2026-10-16",
+      "nav": 149192.28,
+      "cash": 119353.17,
+      "invested": 29839.11,
+      "holdings_count": 3,
+      "total_return_pct": -0.54
     }
   ],
-  "total_trades": 3,
+  "total_trades": 4,
   "winning_trades": 0,
-  "losing_trades": 3,
-  "realized_pnl": -1229.8092840576182,
-  "last_updated": "2026-10-15 19:52:10"
+  "losing_trades": 4,
+  "realized_pnl": -2219.569042358399,
+  "last_updated": "2026-10-16 13:43:23"
 }
