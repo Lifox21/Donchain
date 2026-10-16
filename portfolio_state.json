@@ -7,36 +7,36 @@
       "entry_price": 384.4500122070313,
       "peak_price": 425.0,
       "stop_loss_price": 391.0,
-      "current_price": 422.25,
+      "current_price": 423.29998779296875,
       "entry_date": "2026-10-13",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": 1171.8,
-      "unrealized_pnl_pct": 9.83
+      "unrealized_pnl": 1204.35,
+      "unrealized_pnl_pct": 10.11
     },
     "SKYGOLD": {
       "shares": 6,
       "entry_price": 1001.45,
       "peak_price": 1074.699951171875,
       "stop_loss_price": 988.7239550781251,
-      "current_price": 1052.0,
+      "current_price": 1060.5999755859375,
       "entry_date": "2026-10-15",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": 303.3,
-      "unrealized_pnl_pct": 5.05
+      "unrealized_pnl": 354.9,
+      "unrealized_pnl_pct": 5.91
     },
     "PCJEWELLER": {
       "shares": 628,
       "entry_price": 16.6,
-      "peak_price": 16.6,
-      "stop_loss_price": 15.27,
-      "current_price": 16.6,
+      "peak_price": 17.149999618530273,
+      "stop_loss_price": 15.777999649047853,
+      "current_price": 16.280000686645508,
       "entry_date": "2026-10-16",
       "industry": "Unclassified",
       "signal_type": "DONCHIAN_240_BREAKOUT",
-      "unrealized_pnl": 0.0,
-      "unrealized_pnl_pct": 0.0
+      "unrealized_pnl": -200.96,
+      "unrealized_pnl_pct": -1.93
     }
   },
   "cooldowns": {
@@ -189,11 +189,19 @@
       "invested": 29839.11,
       "holdings_count": 3,
       "total_return_pct": -0.54
+    },
+    {
+      "date": "2026-10-16",
+      "nav": 149062.91,
+      "cash": 119353.17,
+      "invested": 29709.74,
+      "holdings_count": 3,
+      "total_return_pct": -0.62
     }
   ],
   "total_trades": 4,
   "winning_trades": 0,
   "losing_trades": 4,
   "realized_pnl": -2219.569042358399,
-  "last_updated": "2026-10-16 13:43:23"
+  "last_updated": "2026-10-16 15:36:21"
 }

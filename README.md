@@ -10,14 +10,14 @@
 
 | Metric | Current Value | Strategy Reference |
 | :--- | :---: | :--- |
-| **Portfolio NAV** | **₹149,179.72** | Initial Capital: ₹150,000.00 |
-| **Net Return** | **-0.55%** | All fees, STT, GST and slippage accounted |
+| **Portfolio NAV** | **₹149,062.91** | Initial Capital: ₹150,000.00 |
+| **Net Return** | **-0.62%** | All fees, STT, GST and slippage accounted |
 | **Available Cash** | **₹119,353.17** | Ready for opportunistic deployment |
-| **Invested Capital** | **₹29,826.55** | Allocated across active momentum leaders |
+| **Invested Capital** | **₹29,709.74** | Allocated across active momentum leaders |
 | **Active Holdings** | **3 Positions** | Max limit: 12 stocks (8% single-stock cap) |
 | **Total Completed Trades** | **4 Trades** | Closed via 8% trailing stop-loss |
 | **Win Rate** | **0.0%** | High profit-factor trend following |
-| **Last Bot Update** | `2026-10-16 13:43:23` | Auto-synced to GitHub |
+| **Last Bot Update** | `2026-10-16 15:36:21` | Auto-synced to GitHub |
 
 ---
 
@@ -25,9 +25,9 @@
 
 | Symbol | Sector | Shares | Entry Price | Current Price | Peak Price | Trailing Stop (8%) | Unrealized PnL | Return % |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **SHANTIGOLD** | Unclassified | 31 | ₹384.45 | ₹422.25 | ₹425.00 | ₹391.00 | **₹+1171.80** | **+9.83%** |
-| **SKYGOLD** | Unclassified | 6 | ₹1001.45 | ₹1052.00 | ₹1074.70 | ₹988.72 | **₹+303.30** | **+5.05%** |
-| **PCJEWELLER** | Unclassified | 628 | ₹16.60 | ₹16.60 | ₹16.60 | ₹15.27 | **₹+0.00** | **+0.00%** |
+| **SHANTIGOLD** | Unclassified | 31 | ₹384.45 | ₹423.30 | ₹425.00 | ₹391.00 | **₹+1204.35** | **+10.11%** |
+| **SKYGOLD** | Unclassified | 6 | ₹1001.45 | ₹1060.60 | ₹1074.70 | ₹988.72 | **₹+354.90** | **+5.91%** |
+| **PCJEWELLER** | Unclassified | 628 | ₹16.60 | ₹16.28 | ₹17.15 | ₹15.78 | **₹-200.96** | **-1.93%** |
 
 ---
 
